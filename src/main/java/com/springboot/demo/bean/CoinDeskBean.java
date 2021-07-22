@@ -10,9 +10,7 @@ import lombok.Data;
 @Data
 public class CoinDeskBean {
 
-	private int id;
 	private String coinCode;
-	private String coinName;
 	private BigDecimal coinRate;
 	private Date createTime;
 	private Date updateTime;

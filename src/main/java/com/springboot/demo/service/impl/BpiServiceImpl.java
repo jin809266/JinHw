@@ -37,9 +37,6 @@ public class BpiServiceImpl implements BpiService {
 	@Override
 	public BpiBean getBpiJsonObject() {
 		ResponseEntity<String> responseEntity = restTemplate.getForEntity(bpiUrl, String.class);
-//        if(responseEntity.getStatusCode().isError()){
-//         	return HttpStatus.BAD_REQUEST + responseEntity.getStatusCode().toString();
-//        }
         BpiBean bpiBean = gson.fromJson(responseEntity.getBody(), BpiBean.class);
         return bpiBean;
 	}

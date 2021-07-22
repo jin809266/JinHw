@@ -6,8 +6,13 @@ import com.springboot.demo.bean.CoinDeskBean;
 import com.springboot.demo.entity.CoinDesk;
 
 public interface CoinDeskService {
-    List<CoinDeskBean> getAll();
-    CoinDesk getByCoinCode(String coinCode);
-    void add(CoinDeskBean coinDeskBean);
-    void update(CoinDeskBean coinDeskBean);
+	List<CoinDeskBean> getAll();
+
+	CoinDeskBean getByCoinCode(String coinCode);
+
+	void add(CoinDeskBean coinDeskBean);
+
+	void update(String coinCode, CoinDeskBean coinDeskBean);
+
+	void deleteCoinDesk(String CoinCode);
 }

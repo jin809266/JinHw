@@ -10,4 +10,6 @@ import com.springboot.demo.entity.CoinDesk;
 @Repository
 public interface CoinDeskRepository extends JpaRepository<CoinDesk, Integer> {
 	Optional<CoinDesk> findByCoinCode(String coinCode);
+	boolean existsByCoinCode(String coinCode);
+    void deleteByCoinCode(String coinCode);
 }

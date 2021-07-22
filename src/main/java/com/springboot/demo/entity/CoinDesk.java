@@ -5,13 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 
@@ -19,22 +17,19 @@ import lombok.Data;
 @Data
 @Entity
 public class CoinDesk {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private int id;
-
-	@Column
+	@Column(updatable = false, nullable = false)
 	private String coinCode;
 
 	@Column
 	private BigDecimal coinRate;
 
-	@CreatedDate
+	@CreationTimestamp
 	@Column
 	private Date createTime;
 
-	@LastModifiedDate
+	@UpdateTimestamp
 	@Column
 	private Date updateTime;
 }
