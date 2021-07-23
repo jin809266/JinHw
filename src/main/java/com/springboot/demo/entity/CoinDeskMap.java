@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -24,11 +26,11 @@ public class CoinDeskMap {
 	@Column
 	private String coinName;
 
-	@CreatedDate
+	@CreationTimestamp
 	@Column
 	private Date createTime;
 
-	@LastModifiedDate
+	@UpdateTimestamp
 	@Column
 	private Date updateTime;
 }

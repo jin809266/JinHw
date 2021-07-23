@@ -49,10 +49,13 @@ public class CoinDeskServiceImpl implements CoinDeskService {
 
 	@Transactional
 	@Override
-	public void update(String coinCode, CoinDeskBean coinDeskBean) {
+	public CoinDeskBean update(String coinCode, CoinDeskBean coinDeskBean) {
 		CoinDesk coinDesk = repository.findByCoinCode(coinCode).orElseThrow(() -> new RuntimeException("CoinDesk is not exists!"));
 		coinDesk.setCoinRate(coinDeskBean.getCoinRate());
-		repository.save(coinDesk);
+		coinDesk = repository.save(coinDesk);
+		return CoinDeskBean.builder()
+			   .coinCode(coinDesk.getCoinCode())
+			   .coinRate(coinDesk.getCoinRate()).build();
 	}
 
 	@Transactional

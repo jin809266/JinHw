@@ -22,7 +22,7 @@ public class CoinDesk {
 	@Column(updatable = false, nullable = false)
 	private String coinCode;
 
-	@Column
+	@Column(updatable = false, nullable = false)
 	private BigDecimal coinRate;
 
 	@CreationTimestamp

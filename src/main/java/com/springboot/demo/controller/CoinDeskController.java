@@ -40,22 +40,22 @@ public class CoinDeskController {
 	}
 
 	// add CoinDesk
-	@PostMapping("/addCoinDesk")
+	@PostMapping("/coinDesk")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void addCoinDesk(@RequestBody CoinDeskBean coinDeskBean) {
 		service.add(coinDeskBean);
 	}
 
 	// update CoinDesk by coinCode
-	@PutMapping("/updateCoinDesk/{coinCode}")
+	@PutMapping("coinDesk/{coinCode}")
 	@ResponseStatus(HttpStatus.OK)
-	public void updateCoinDesk(@PathVariable(required = true) String coinCode, @RequestBody CoinDeskBean coinDeskBean) {
+	public CoinDeskBean updateCoinDesk(@PathVariable(required = true) String coinCode, @RequestBody CoinDeskBean coinDeskBean) {
 		coinDeskBean.setCoinCode(coinCode);
-		service.update(coinCode,coinDeskBean);
+		return service.update(coinCode,coinDeskBean);
 	}
 
 	// delete coinDesk by coinCode
-	@DeleteMapping("/deleteCoinDesk/{coinCode}")
+	@DeleteMapping("/coinDesk/{coinCode}")
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCoinDesk(@PathVariable("coinCode") String coinCode) {
 		service.deleteCoinDesk(coinCode);
